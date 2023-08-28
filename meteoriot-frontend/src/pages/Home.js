@@ -2,9 +2,9 @@ import React from "react";
 
 const Home = () =>{
     return(
-        <h1>
-            Hello world!
-        </h1>
+      <div class="alert alert-primary" role="alert">
+        A simple primary alert—check it out!
+      </div>    
     );
 };
 
