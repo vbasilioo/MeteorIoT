@@ -1,4 +1,4 @@
-package com.api.meteoriot.backend.dtos;
+package com.api.meteoriot.backend.dtos.Usuário;
 
 public class UsuarioDTO {
     private String name;

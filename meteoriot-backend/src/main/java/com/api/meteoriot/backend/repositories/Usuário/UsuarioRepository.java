@@ -1,6 +1,6 @@
-package com.api.meteoriot.backend.repositories;
+package com.api.meteoriot.backend.repositories.Usuário;
 
-import com.api.meteoriot.backend.models.UsuarioModel;
+import com.api.meteoriot.backend.models.Usuário.UsuarioModel;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

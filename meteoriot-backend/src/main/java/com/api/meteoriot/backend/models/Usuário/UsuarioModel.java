@@ -1,4 +1,4 @@
-package com.api.meteoriot.backend.models;
+package com.api.meteoriot.backend.models.Usuário;
 
 import jakarta.persistence.*;
 
