@@ -1,17 +1,18 @@
 package com.api.meteoriot.backend.dtos.Usuário;
 
 public class UsuarioDTO {
-    private String name;
+    private String nomeCompleto;
     private String email;
     private String senha;
     private int telefone;
+    private String fotoPerfil;
 
-    public String getName() {
-        return name;
+    public String getNomeCompleto() {
+        return nomeCompleto;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setNomeCompleto(String nomeCompleto) {
+        this.nomeCompleto = nomeCompleto;
     }
 
     public String getEmail() {
@@ -36,5 +37,13 @@ public class UsuarioDTO {
 
     public void setTelefone(int telefone) {
         this.telefone = telefone;
+    }
+
+    public String getFotoPerfil() {
+        return fotoPerfil;
+    }
+
+    public void setFotoPerfil(String fotoPerfil) {
+        this.fotoPerfil = fotoPerfil;
     }
 }

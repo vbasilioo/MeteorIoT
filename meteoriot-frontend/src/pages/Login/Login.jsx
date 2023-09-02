@@ -22,7 +22,8 @@ function Login(){
     
             const usuarioData = response.data;
             setUsuario(usuarioData);
-            navigate('/dashboard');
+
+            navigate('/dashboard', { state: { usuarioData } });
         }catch(error){
             setErro('Autenticação falha. Verifique suas informações!')
         }
@@ -31,7 +32,6 @@ function Login(){
     return(
         <div>
             <h2>Login</h2>
-            {erro && <p>{erro}</p>}
             <input
                 type="email"
                 placeholder="E-mail"

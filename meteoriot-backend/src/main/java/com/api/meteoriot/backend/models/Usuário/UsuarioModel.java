@@ -13,10 +13,12 @@ public class UsuarioModel implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private UUID ID;
-    private String nome;
+
+    private String nomeCompleto;
     private String email;
     private String senha;
     private int telefone;
+    private String fotoPerfil;
 
     public UUID getID() {
         return ID;
@@ -26,12 +28,12 @@ public class UsuarioModel implements Serializable {
         this.ID = ID;
     }
 
-    public String getNome() {
-        return nome;
+    public String getNomeCompleto() {
+        return nomeCompleto;
     }
 
-    public void setNome(String nome) {
-        this.nome = nome;
+    public void setNomeCompleto(String nomeCompleto) {
+        this.nomeCompleto = nomeCompleto;
     }
 
     public String getEmail() {
@@ -56,5 +58,13 @@ public class UsuarioModel implements Serializable {
 
     public void setTelefone(int telefone) {
         this.telefone = telefone;
+    }
+
+    public String getFotoPerfil() {
+        return fotoPerfil;
+    }
+
+    public void setFotoPerfil(String fotoPerfil) {
+        this.fotoPerfil = fotoPerfil;
     }
 }

@@ -40,7 +40,7 @@ public class UsuarioController {
         return ResponseEntity.status(HttpStatus.OK).body(service.getUsuarios());
     }
 
-    @GetMapping("/{usuarioId}")
+    @GetMapping("/{ID}")
     public ResponseEntity<Object> getUsuario(@PathVariable(value = "ID") UUID ID){
         Optional<UsuarioModel> usuario = service.getUsuarioPorId(ID);
 
@@ -50,7 +50,7 @@ public class UsuarioController {
         return ResponseEntity.status(HttpStatus.OK).body(usuario.get());
     }
 
-    @DeleteMapping("/{usuarioId}")
+    @DeleteMapping("/{ID}")
     public ResponseEntity<Object> deletarUsuario(@PathVariable(value = "ID") UUID ID){
         Optional<UsuarioModel> usuario = service.getUsuarioPorId(ID);
 
@@ -61,7 +61,7 @@ public class UsuarioController {
         return ResponseEntity.status(HttpStatus.OK).body("Usuário deletado.");
     }
 
-    @PutMapping("/{usuarioId}")
+    @PutMapping("/{ID}")
     public ResponseEntity<Object> alterarUsuario(@PathVariable(value = "ID") UUID ID,
                                                  @RequestBody @Valid UsuarioDTO dto){
         Optional<UsuarioModel> usuario = service.getUsuarioPorId(ID);
@@ -70,10 +70,11 @@ public class UsuarioController {
             return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Esse usuário não existe.");
 
         var usuarioModel = usuario.get();
+        usuarioModel.setNomeCompleto(dto.getNomeCompleto());
         usuarioModel.setEmail(dto.getEmail());
-        usuarioModel.setNome(dto.getName());
         usuarioModel.setSenha(dto.getSenha());
         usuarioModel.setTelefone(dto.getTelefone());
+        usuarioModel.setFotoPerfil(dto.getFotoPerfil());
 
         return ResponseEntity.status(HttpStatus.OK).body(service.salvar(usuarioModel));
     }
