@@ -1,10 +1,11 @@
-import React from "react";
+import React, { useState } from "react";
 import Sidebar from "../../components/Sidebar/Sidebar";
 import { useLocation } from "react-router-dom";
+import ContentDashboard from "./ContentDashboard";
 
 export default function Dashboard(){
     const location = useLocation();
-    const usuarioData = location.state.usuarioData;
+    const usuarioData = location.state ? location.state.usuarioData : null;
 
     return(
         <div className="container-fluid">
@@ -14,7 +15,7 @@ export default function Dashboard(){
                 </div>
                 <div className="col-md-10 col-sm-12 p-3">
                     <div>
-                        Informações
+                        <ContentDashboard />
                     </div>
                 </div>
             </div>

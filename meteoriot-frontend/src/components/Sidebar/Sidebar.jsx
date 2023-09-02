@@ -3,9 +3,8 @@ import React from 'react';
 import './Sidebar.css';
 import { useLocation } from 'react-router-dom';
 
-export default function Sidebar() {
+export default function Sidebar({ usuario }) {
     const location = useLocation();
-    const usuario = location.state.usuarioData;
 
     return (
         <div className="sidebar d-flex flex-column p-3 text-bg-dark">
@@ -17,11 +16,6 @@ export default function Sidebar() {
                 <li className="nav-item">
                     <a href="#" className="nav-link text-white">
                         Dashboard
-                    </a>
-                </li>
-                <li className="nav-item">
-                    <a href="#" className="nav-link text-white">
-                    Histórico
                     </a>
                 </li>
             </ul>
