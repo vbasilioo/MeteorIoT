@@ -1,10 +1,10 @@
 import { Fragment } from "react";
-import RandomTemperatura from "./Temperatura/RandomTemperatura";
+import GraficoTemperatura from "./Temperatura/GraficoTemperatura";
 
 export default function ContentDashboard(){
     return(
         <Fragment>
-            <RandomTemperatura />
+            <GraficoTemperatura />
         </Fragment>
     );
 }
