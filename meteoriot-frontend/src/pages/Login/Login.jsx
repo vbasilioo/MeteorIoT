@@ -56,7 +56,7 @@ function Login(){
                             </div>
                         </div>
                             <div class="input-group mb-3">
-                                <button class="btn btn-lg btn-info w-100 fs-6" type="submit">Entrar</button>
+                                <button class="btn btn-lg btn-info w-100 fs-6" type="submit" onClick={handleLogin}>Entrar</button>
                             </div>
                     </form>
                     <div class="row">
