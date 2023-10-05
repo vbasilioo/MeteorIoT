@@ -1,17 +1,20 @@
-import Login from "../pages/Login/Login";
+import React from "react";
 
-export default function Navbar(){
+const Navbar = () => {
     return(
-        <ul class="nav justify-content-center">
-            <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="#">Home</a>
+        <ul className="nav justify-content-center">
+            <li className="nav-item">
+                <a className="nav-link active" aria-current="page" href="#">Home</a>
             </li>
-            <li class="nav-item">
-                <a class="nav-link" href="#">Sobre nós</a>
+            <li className="nav-item">
+                <a className="nav-link" href="#">Sobre nós</a>
             </li>
-            <li class="nav-item">
-                <a class="nav-link" href="/login">Entrar</a>
+            <li className="nav-item">
+                <a className="nav-link" href="/login">Entrar</a>
             </li>
+            <button>Trocar Tema</button>
         </ul>
     );
-}
+};
+
+export default Navbar;

@@ -1,12 +1,11 @@
-/* eslint-disable jsx-a11y/alt-text */
-import React from "react";
+import React, { useState } from "react";
 import Navbar from "../components/Navbar";
 
-const Home = () =>{
-    return(
-      <div>
-        <Navbar />
-      </div>  
+const Home = () => {
+    return (
+        <div>
+            <Navbar />
+        </div>
     );
 };
 
