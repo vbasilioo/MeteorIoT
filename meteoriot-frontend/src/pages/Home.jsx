@@ -1,5 +1,4 @@
-/* eslint-disable jsx-a11y/alt-text */
-import React from "react";
+import React, { useState } from "react";
 import Navbar from "../components/Navbar";
 
 const Home = () => {
@@ -74,6 +73,11 @@ const Home = () => {
       </div>
     </div>
   );
+    return (
+        <div>
+            <Navbar />
+        </div>
+    );
 };
 
 export default Home;

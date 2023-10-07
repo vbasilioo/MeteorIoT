@@ -1,13 +1,14 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
+import { useTheme } from "@emotion/react";
 
 function Login(){
+    const { toggleTheme, theme } = useTheme();
     const [usuario, setUsuario] = useState(null);
     const [email, setEmail] = useState('');
     const [senha, setSenha] = useState('');
     const [erro, setErro] = useState('');
-
     const navigate = useNavigate();
 
     const handleLogin = async(e) => {
@@ -36,6 +37,22 @@ function Login(){
                         <div class="header-text mb-4 text-center">
                             <h2 class="text-align-center text-info"><b>MeteorIot</b></h2>
                             <p class="text-align-center text-white">Bem-vindo de volta!</p>
+        <div className={`d-flex justify-content-center align-items-center min-vh-100 bg-dark`}>
+        <div class="row rounder-5 p-3 bg-dark">
+            <div class="col-md-12">
+                <div class="row align-items-center">
+                    <div class="header-text mb-4 text-center">
+                        <h2 class="text-align-center text-info"><b>MeteorIot</b></h2>
+                        <p class="text-align-center text-white">Bem-vindo de volta!</p>
+                    </div>
+                    <form method="POST" action="">
+                        <h6 class="text-white">Email</h6>
+                        <div class="input-group mb-3">
+                            <input type="email" name="campoEmail" class="form-control form-control-lg bg-light fs-6" required value={email} onChange={(e)=> setEmail(e.target.value)}/>
+                        </div>
+                        <h6 class="text-white">Senha</h6>
+                        <div class="input-group mb-1">
+                            <input type="password" name="campoSenha" class="form-control form-control-lg bg-light fs-6" required value={senha} onChange={(e)=> setSenha(e.target.value)}/>
                         </div>
                         <form method="POST" action="">
                             <h6 class="text-white">Email</h6>

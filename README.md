@@ -167,3 +167,5 @@ Nesse projeto seguiremos um padrão de commits para organizar os commits anterio
 
 7. **Chore**:
 > Usado para mudanças que não afetam o código, como atualização de dependências ou ajustes na configuração
+
+Atualizado com a nova versão do React. 4 de outubro de 2023.
