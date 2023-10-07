@@ -21,13 +21,24 @@ class GraficoConfig extends Component {
     const ctx = this.chartRef.current.getContext('2d');
 
     if (this.chart) {
-      this.chart.destroy(); // Destrua o gráfico anterior antes de criar um novo
+      this.chart.destroy(); 
     }
 
   this.chart = new Chart(ctx, {
       type: type || 'bar',
       data,
-      options,
+      options: {
+        scales: {
+          x: {
+            type: 'category',
+            labels: data.labels,
+          },
+          y: {
+            beginAtZero: true,
+          },
+        },
+        ...options,
+      },
     });
   }
 
