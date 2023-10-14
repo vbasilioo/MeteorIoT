@@ -1,7 +1,23 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Navbar from "../components/Navbar";
 
 const Home = () => {
+  const [temperatura, setTemperatura] = useState(null);
+
+  useEffect(() => {
+    const fetchData = async() => {
+      try{
+        const response = await fetch('http://localhost:8080/temperatura/ultimaTemperatura');
+        const data = await response.json();
+        setTemperatura(data);
+      }catch(error){
+        console.error("Erro ao buscar a temperatura: ", error);
+      }
+    };
+
+    fetchData();
+  }, []);
+
   return (
     <div className="d-flex flex-column vh-100 bg-dark">
       <Navbar />
@@ -11,7 +27,16 @@ const Home = () => {
       <div className="flex-grow-1 bg-dark d-flex justify-content-center align-items-center">
         <div className="card text-black bg-white">
           <div className="card-body">
-            <h5 className="card-title text-center">Temperatura:</h5>
+            <h5 className="card-title text-center">Temperatura: </h5>
+            {temperatura ? 
+            (
+              <div className="text-center">{temperatura.valorTemperatura}</div>
+            ) 
+            : 
+            (
+              <p>Carregando...</p>
+            )}
+            <br />
             {/* Temperatura */}
             <p className="card-title text-center">Umidade:</p>
             {/* Umidade */}

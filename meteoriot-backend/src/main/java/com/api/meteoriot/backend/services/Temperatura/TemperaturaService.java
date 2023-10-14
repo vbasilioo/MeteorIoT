@@ -34,4 +34,8 @@ public class TemperaturaService {
     public void deletarTemperatura(TemperaturaModel model){
         repository.delete(model);
     }
+
+    public Optional<TemperaturaModel> getUltimaTemperatura(){
+        return repository.findTopByOrderByDataTemperaturaDesc();
+    }
 }

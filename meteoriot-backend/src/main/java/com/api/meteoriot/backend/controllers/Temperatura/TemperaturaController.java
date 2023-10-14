@@ -14,6 +14,7 @@ import java.util.Optional;
 import java.util.UUID;
 
 @RestController
+@CrossOrigin(origins = "*", maxAge = 3600)
 @RequestMapping(value = "/temperatura")
 public class TemperaturaController {
     final TemperaturaService service;
@@ -32,6 +33,13 @@ public class TemperaturaController {
     @GetMapping
     public ResponseEntity<List<TemperaturaModel>> getTodasTemperaturas(){
         return ResponseEntity.status(HttpStatus.OK).body(service.getTemperaturas());
+    }
+
+    @GetMapping(value = "/ultimaTemperatura")
+    public ResponseEntity<TemperaturaModel> getUltimaTemperatura(){
+        Optional<TemperaturaModel> ultimaTemperatura = service.getUltimaTemperatura();
+        return ultimaTemperatura.map(ResponseEntity::ok)
+                .orElseGet(() -> ResponseEntity.notFound().build());
     }
 
     @GetMapping(value = "/{ID}")
