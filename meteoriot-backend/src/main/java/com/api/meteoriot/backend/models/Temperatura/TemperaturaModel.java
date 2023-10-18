@@ -4,6 +4,7 @@ import jakarta.persistence.*;
 
 import java.io.Serializable;
 import java.time.LocalDate;
+import java.time.LocalTime;
 import java.util.UUID;
 
 @Entity
@@ -18,6 +19,7 @@ public class TemperaturaModel implements Serializable {
     private Double valorTemperatura;
     private String tipoTemperatura;
     private LocalDate dataTemperatura;
+    private LocalTime horaTemperatura;
 
     public UUID getID() {
         return ID;
@@ -49,5 +51,13 @@ public class TemperaturaModel implements Serializable {
 
     public void setDataTemperatura(LocalDate dataTemperatura) {
         this.dataTemperatura = dataTemperatura;
+    }
+
+    public LocalTime getHoraTemperatura() {
+        return horaTemperatura;
+    }
+
+    public void setHoraTemperatura(LocalTime horaTemperatura) {
+        this.horaTemperatura = horaTemperatura;
     }
 }

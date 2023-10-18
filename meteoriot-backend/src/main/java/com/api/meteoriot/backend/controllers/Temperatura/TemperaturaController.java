@@ -64,6 +64,7 @@ public class TemperaturaController {
         model.setValorTemperatura(dto.getValorTemperatura());
         model.setTipoTemperatura(dto.getTipoTemperatura());
         model.setDataTemperatura(dto.getDataTemperatura());
+        model.setHoraTemperatura(dto.getHoraTemperatura());
 
         return ResponseEntity.status(HttpStatus.OK).body(service.salvarTemperatura(model));
     }

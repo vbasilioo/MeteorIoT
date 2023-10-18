@@ -5,9 +5,8 @@ import com.api.meteoriot.backend.repositories.Temperatura.TemperaturaRepository;
 import jakarta.transaction.Transactional;
 import org.springframework.stereotype.Service;
 
-import java.util.List;
-import java.util.Optional;
-import java.util.UUID;
+import java.time.LocalDate;
+import java.util.*;
 
 @Service
 public class TemperaturaService {

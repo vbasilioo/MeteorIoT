@@ -2,44 +2,82 @@ import React, { useEffect, useState } from "react";
 import Navbar from "../components/Navbar";
 
 const Home = () => {
-  const [temperatura, setTemperatura] = useState(null);
+  const [temperaturaAtual, setTemperaturaAtual] = useState(null);
+  const [umidade, setUmidade] = useState(null);
+
+  const fetchTemperatura = async() => {
+    try{
+      const response = await fetch('http://localhost:8080/temperatura');
+      const data = await response.json();
+
+      const temperaturaAtual = data.reduce((max, temperatura) => {
+        const dataHoraAtual = new Date(`${temperatura.dataTemperatura} ${temperatura.horaTemperatura}`);
+        const dataHoraMax = new Date(`${max.dataTemperatura} ${max.horaTemperatura}`);
+        return dataHoraAtual > dataHoraMax ? temperatura : max;
+      }, data[0]);
+
+      setTemperaturaAtual((prevData) => {
+        const newData = { ...temperaturaAtual, key: new Date().toISOString() };
+        return newData;
+      });
+    }catch(error){
+      console.error("Erro ao buscar a temperatura: ", error);
+    }
+  };
+
+  const fetchUmidade = async() => {
+    try{
+      const response = await fetch('http://localhost:8080/umidade/ultimaUmidade');
+      const data = await response.json();
+      setUmidade(data); 
+    }catch(error){
+      console.error("Erro ao buscar a umidade: ", error);
+    }
+  };
 
   useEffect(() => {
     const fetchData = async() => {
-      try{
-        const response = await fetch('http://localhost:8080/temperatura/ultimaTemperatura');
-        const data = await response.json();
-        setTemperatura(data);
-      }catch(error){
-        console.error("Erro ao buscar a temperatura: ", error);
-      }
+      await fetchTemperatura();
+      await fetchUmidade();
     };
 
     fetchData();
+
+    const intervalId = setInterval(async() => {
+      await fetchTemperatura();
+      await fetchUmidade();
+    }, 5000);
+
+    return () => clearInterval(intervalId);
   }, []);
 
   return (
     <div className="d-flex flex-column vh-100 bg-dark">
       <Navbar />
-
       <hr className="my-4" style={{ borderBottom: '2px solid white' }} />
-
       <div className="flex-grow-1 bg-dark d-flex justify-content-center align-items-center">
         <div className="card text-black bg-white">
           <div className="card-body">
             <h5 className="card-title text-center">Temperatura: </h5>
-            {temperatura ? 
+            {temperaturaAtual ? 
             (
-              <div className="text-center">{temperatura.valorTemperatura}</div>
+              <div key={temperaturaAtual.key} className="text-center">{temperaturaAtual.valorTemperatura}°C</div>
             ) 
             : 
             (
-              <p>Carregando...</p>
+              <p key="loading">Carregando...</p>
             )}
             <br />
-            {/* Temperatura */}
             <p className="card-title text-center">Umidade:</p>
-            {/* Umidade */}
+            {umidade ?
+            (
+              <div className="text-center">{umidade.valorUmidade}%</div>
+            )
+            :
+            (
+              <p>Carregando...</p>
+            )
+            }
           </div>
         </div>
       </div>
