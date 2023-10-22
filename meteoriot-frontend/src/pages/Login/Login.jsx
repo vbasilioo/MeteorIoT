@@ -47,6 +47,7 @@ function Login(){
                         <div class="input-group mb-1">
                             <input type="password" name="campoSenha" class="form-control form-control-lg bg-light fs-6" required value={senha} onChange={(e)=> setSenha(e.target.value)}/>
                         </div>
+                        <br />
                         <div class="input-group mb-3">
                             <button class="btn btn-lg btn-info w-100 fs-6" type="submit" onClick={handleLogin}>Entrar</button>
                         </div>

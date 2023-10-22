@@ -7,7 +7,7 @@ const Home = () => {
 
   const fetchTemperatura = async() => {
     try{
-      const response = await fetch('http://localhost:8080/temperatura');
+      const response = await fetch('http://localhost:8080/temperatura/historicoTemperatura');
       const data = await response.json();
 
       const temperaturaAtual = data.reduce((max, temperatura) => {

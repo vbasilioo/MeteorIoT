@@ -20,6 +20,7 @@ public class TemperaturaModel implements Serializable {
     private String tipoTemperatura;
     private LocalDate dataTemperatura;
     private LocalTime horaTemperatura;
+    private String mesTemperatura;
 
     public UUID getID() {
         return ID;
@@ -59,5 +60,13 @@ public class TemperaturaModel implements Serializable {
 
     public void setHoraTemperatura(LocalTime horaTemperatura) {
         this.horaTemperatura = horaTemperatura;
+    }
+
+    public String getMesTemperatura() {
+        return mesTemperatura;
+    }
+
+    public void setMesTemperatura(String mesTemperatura) {
+        this.mesTemperatura = mesTemperatura;
     }
 }

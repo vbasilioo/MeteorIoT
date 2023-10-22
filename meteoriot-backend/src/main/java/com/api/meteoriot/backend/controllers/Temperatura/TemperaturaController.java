@@ -30,7 +30,7 @@ public class TemperaturaController {
         return ResponseEntity.status(HttpStatus.CREATED).body(service.salvarTemperatura(model));
     }
 
-    @GetMapping
+    @GetMapping(value = "/historicoTemperatura")
     public ResponseEntity<List<TemperaturaModel>> getTodasTemperaturas(){
         return ResponseEntity.status(HttpStatus.OK).body(service.getTemperaturas());
     }

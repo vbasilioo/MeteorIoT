@@ -8,6 +8,7 @@ public class TemperaturaDTO {
     private String tipoTemperatura;
     private LocalDate dataTemperatura;
     private LocalTime horaTemperatura;
+    private String mesTemperatura;
 
     public Double getValorTemperatura() {
         return valorTemperatura;
@@ -39,5 +40,13 @@ public class TemperaturaDTO {
 
     public void setHoraTemperatura(LocalTime horaTemperatura) {
         this.horaTemperatura = horaTemperatura;
+    }
+
+    public String getMesTemperatura() {
+        return mesTemperatura;
+    }
+
+    public void setMesTemperatura(String mesTemperatura) {
+        this.mesTemperatura = mesTemperatura;
     }
 }

@@ -1,29 +1,38 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import GraficoConfig from './GraficoConfig';
+import axios from 'axios';
 
 const GraficoTemperatura = () => {
-  // gera grafico automatioco temporario (tirar qnd tiver bd)
-  const getRandomInt = (min, max) => {
-    return Math.floor(Math.random() * (max - min + 1)) + min;
-  };
-  
-  // gera grafico automatioco temporario (tirar qnd tiver bd)
-  const generateRandomData = (length, min, max) => {
-    const data = [];
-    for (let i = 0; i < length; i++) {
-      data.push(getRandomInt(min, max));
+
+  const [historicoTemperaturas, setHistoricoTemperaturas] = useState([]);
+
+  useEffect(() => {
+    axios.get('http://localhost:8080/temperatura/historicoTemperatura')
+    .then((response) => {
+      setHistoricoTemperaturas(response.data);
+    })
+    .catch((error) => {
+      console.error("Erro ao buscar o histórico de temperaturas: ", error);
+    })
+  }, []);
+
+  function getRandomColor() {
+    const letters = '0123456789ABCDEF';
+    let color = '#';
+    for (let i = 0; i < 6; i++) {
+      color += letters[Math.floor(Math.random() * 16)];
     }
-    return data;
-  };
+    return color;
+  }
 
   const chartData = {
-    labels: ['Janeiro', 'Fevereiro', 'Março', 'Abril', 'Maio', 'Junho', 'Julho', 'Agosto', 'Setembro', 'Outubro', 'Novembro', 'Dezembro'],
+    labels: historicoTemperaturas.map(temperatura => temperatura.mesTemperatura),
     datasets: [
       {
         label: 'Temperaturas',
-        data: generateRandomData(12, -10, 40),
+        data: historicoTemperaturas.map(temperatura => temperatura.valorTemperatura), 
         backgroundColor: 'rgba(75, 192, 192, 0.2)',
-        borderColor: 'rgba(75, 192, 192, 1)',
+        borderColor: getRandomColor(),
         borderWidth: 1,
       },
     ],
