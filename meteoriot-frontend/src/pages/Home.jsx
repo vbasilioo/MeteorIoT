@@ -85,7 +85,7 @@ const Home = () => {
       <hr className="my-4" style={{ borderTop: '2px solid white' }} />
 
       {/* Sobre Nós */}
-      <div id="sobre-nos" className="container mt-5 text-white">
+      {/*<div id="sobre-nos" className="container mt-5 text-white">
         <h2 className="text-center">Sobre Nós</h2>
         <div className="row mt-4 d-flex justify-content-center align-items-center">
           <div className="col-lg-4 mb-4 text-center">
@@ -133,14 +133,9 @@ const Home = () => {
             </p>
           </div>
         </div>
-      </div>
+      </div>*/}
     </div>
   );
-    return (
-        <div>
-            <Navbar />
-        </div>
-    );
 };
 
 export default Home;
