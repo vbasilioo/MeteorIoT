@@ -16,15 +16,6 @@ const GraficoTemperatura = () => {
     })
   }, []);
 
-  function getRandomColor() {
-    const letters = '0123456789ABCDEF';
-    let color = '#';
-    for (let i = 0; i < 6; i++) {
-      color += letters[Math.floor(Math.random() * 16)];
-    }
-    return color;
-  }
-
   const chartData = {
     labels: historicoTemperaturas.map(temperatura => temperatura.mesTemperatura),
     datasets: [
@@ -32,7 +23,7 @@ const GraficoTemperatura = () => {
         label: 'Temperaturas',
         data: historicoTemperaturas.map(temperatura => temperatura.valorTemperatura), 
         backgroundColor: 'rgba(75, 192, 192, 0.2)',
-        borderColor: getRandomColor(),
+        borderColor: 'rgba(75, 192, 192, 1)',
         borderWidth: 1,
       },
     ],
