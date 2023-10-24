@@ -29,7 +29,7 @@ export default function Sidebar({ usuario }) {
                     <li><a className="dropdown-item" href="#">Configurações</a></li>
                     <li><a className="dropdown-item" href="#">Perfil</a></li>
                     <li><hr className="dropdown-divider" /></li>
-                    <li><a className="dropdown-item" href="#">Sair</a></li>
+                    <li><a className="dropdown-item" href="/">Sair</a></li>
                 </ul>
             </div>
         </div>
