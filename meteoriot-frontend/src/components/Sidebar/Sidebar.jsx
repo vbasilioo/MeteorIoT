@@ -15,7 +15,7 @@ export default function Sidebar({ usuario }) {
             <ul className="nav nav-pills flex-column mb-auto">
                 <li className="nav-item">
                     <a href="#" className="nav-link text-white">
-                        Dashboard
+                        Histórico
                     </a>
                 </li>
             </ul>

@@ -37,7 +37,7 @@ while True:
             else:
                 print("Erro ao enviar dados para o backend. Código de status:", response.status_code)
         except Exception as e:
-            print("Erro ao conectar com o backend:", str(e))
+            print("Erro ao conectar com o backend:", str(e))    
     if "Umidade" in line:
         try:
             valor_umidade = float(line.split(" ")[-1])
@@ -60,4 +60,4 @@ while True:
         except Exception as e:
             print("Erro ao conectar com o backend:", str(e))
 
-    time.sleep(5) 
+    time.sleep(15) 
